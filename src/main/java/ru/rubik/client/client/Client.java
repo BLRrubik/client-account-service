@@ -57,7 +57,7 @@ public class Client {
                 var id = idList.get(random.nextInt(0, idList.size()));
                 try {
                     restTemplate.postForEntity(
-                            new URI("http://localhost:8080/amount"),
+                            new URI("http://localhost:8080/api/v1/accounts/amount"),
                             new AmountAddRequest(id, value),
                             Long.class);
                     System.out.println("Post ok: " + copyOfI + ", id: " + id);
@@ -74,7 +74,7 @@ public class Client {
                 var id = idList.get(random.nextInt(0, idList.size()));
                 try {
                     Long amount = restTemplate.getForObject(
-                            new URI("http://localhost:8080/amount/" + id),
+                            new URI("http://localhost:8080/api/v1/accounts/amount/" + id),
                             Long.class);
                     System.out.println("Get ok: " + copyOfI  + ", id: " + id + ", value: " + amount);
 
